@@ -40,6 +40,32 @@ npm install @itharbors/ui-graph
 npm install @itharbors/ui-tree
 ```
 
+## Develop
+
+clone 仓库后，需要安装依赖仓库
+
+```bash
+npm install
+```
+
+编译仓库代码
+
+```bash
+npm run build
+```
+
+启动网页预览、运行测试用例
+
+```bash
+npm run server
+```
+
+如果开发过程中以及准备提交代码的时候需要测试，则执行
+
+```bash
+npm run test
+```
+
 ## Contributing
 
 Please contribute! [Look at the issues.](https://github.com/itharbors/ui/issues)
