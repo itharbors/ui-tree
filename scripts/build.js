@@ -1,6 +1,6 @@
 'use strict';
 
-const { readdirSync } = require('fs');
+const { readdirSync, statSync } = require('fs');
 const { join } = require('path');
 const { spawn } = require('child_process');
 
@@ -18,7 +18,11 @@ const spawnNPMAsync = function(cwd, ...cmd) {
 
 const exec = async function() {
     const elementDir = join(__dirname, '../element');
-    const names = readdirSync(elementDir);
+    const names = readdirSync(elementDir).filter(name => {
+        // 过滤掉一些文件，如macOS系统中的.DS_Store等
+        const stat = statSync(join(elementDir, name));
+        return stat.isDirectory();
+    });
 
     for (let name of names) {
         const dir = join(elementDir, name);
